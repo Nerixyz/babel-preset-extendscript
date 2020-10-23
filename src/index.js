@@ -74,7 +74,7 @@ function preset(context, opts) {
         { useBuiltIns: true },
       ],
       ...require('./transformers'),
-      ...require('./json'),
+      ...(json ? require('./json') : []),
     ].filter(Boolean),
   });
 }
