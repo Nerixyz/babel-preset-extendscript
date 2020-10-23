@@ -27,11 +27,13 @@ function preset(context, opts) {
   let loose = false;
   let modules = 'commonjs';
   let root;
+  let json = true;
 
   if (opts !== undefined) {
     if (opts.loose !== undefined) loose = opts.loose;
     if (opts.modules !== undefined) modules = opts.modules;
     if (opts.root !== undefined) root = opts.root;
+    if (opts.json !== undefined) json = opts.json;
   }
 
   if (typeof loose !== 'boolean')
