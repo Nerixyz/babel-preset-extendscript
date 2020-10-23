@@ -9,7 +9,7 @@
  * For backward-compatibility with anything that may have been loading this preset and expecting
  * it to be a simple Babel config object, we maintain the old config here.
  */
-module.exports = preset({});
+module.exports = preset;
 
 // For backward compatibility with babel-core < v6.13.x, we use the 'buildPreset' property
 // of the preset object for the preset creation function.
@@ -45,7 +45,7 @@ function preset(context, opts) {
     );
   }
 
-  return () => ({
+  return {
     plugins: [
       [require('@babel/plugin-transform-template-literals').default, { loose }],
       require('@babel/plugin-transform-literals').default,
@@ -76,5 +76,5 @@ function preset(context, opts) {
       ...require('./transformers'),
       ...(json ? require('./json') : []),
     ].filter(Boolean),
-  });
+  };
 }
